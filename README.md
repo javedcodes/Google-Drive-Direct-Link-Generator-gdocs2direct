@@ -1,4 +1,4 @@
-# Google Drive Direct Download Link Generator Tool
+# Google Drive Direct Download Link Generator Tool (gdocs2direct)
 
 Do you want to create a tool that simplifies direct downloading of files from **Google Drive** with less time and effort? You’ll be excited to know that the **<a href="https://jvcodes.com/google-drive-direct-download-link-generator-tool-in-html-css-javascript/" >Google Drive Direct Link Generator</a>** is ready for you, built using **HTML**, **CSS**, and **JavaScript**.
 
