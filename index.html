@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Drive Direct Download Link Generator | JV Source Codes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .button-secondary {
+            background-color: #008CBA;
+        }
+
+        .button-secondary:hover {
+            background-color: #007bb5;
+        }
+    </style>
+</head>
+<body>
+    <h2>Google Drive Direct Download Link Generator</h2>
+    <input type="text" id="shareable-link" placeholder="Paste your Google Drive shareable link here">
+    <button onclick="generateLink()">Generate Direct Download Link</button>
+    <br><br>
+    <p><strong>Direct Download Link:</strong></p>
+    <input type="text" id="direct-link" readonly>
+    <br>
+    <button onclick="copyLink()">Copy Final Link</button>
+    <button class="button-secondary" onclick="testDownload()">Test Download</button>
+
+    <script>
+        function generateLink() {
+            let shareableLink = document.getElementById('shareable-link').value;
+            let fileId = shareableLink.match(/[-\w]{25,}/);
+            if (fileId) {
+                let directLink = `https://drive.google.com/uc?export=download&id=${fileId}`;
+                document.getElementById('direct-link').value = directLink;
+            } else {
+                alert("Invalid Google Drive link.");
+            }
+        }
+
+        function copyLink() {
+            let directLink = document.getElementById('direct-link');
+            directLink.select();
+            document.execCommand("copy");
+            alert("Link copied to clipboard!");
+        }
+
+        function testDownload() {
+            let directLink = document.getElementById('direct-link').value;
+            if (directLink) {
+                window.open(directLink, '_blank');
+            } else {
+                alert("Please generate a link first.");
+            }
+        }
+    </script>
+</body>
+</html>
+
+<!-- JV Source Codes (WWW.JVCODES.COM) -->
